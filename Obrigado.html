@@ -4,45 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+    /* Zera margens e garante altura total */
+    html, body {
       margin: 0;
-      padding: 60px 20px;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden; /* Evita barras de rolagem desnecessárias */
+    }
+
+    body {
       font-family: system-ui, -apple-system, sans-serif;
       text-align: center;
-      background-color: #002d62; 
+      background-color: #002d62; /* Azul Cinépolis */
       color: #ffffff;
+      
+      /* MÁGICA DA CENTRALIZAÇÃO */
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 300px;
     }
     
     .icon-container {
-      width: 80px; height: 80px;
-      background-color: #c4a457; 
+      width: 80px;
+      height: 80px;
+      background-color: #c4a457; /* Dourado Cinépolis */
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 24px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       animation: scaleUp 0.5s ease-out;
     }
 
-    .icon-container svg { width: 45px; height: 45px; color: #ffffff; }
-    h1 { font-size: 26px; margin: 0 0 12px 0; font-weight: 700; }
-    p { color: #cbd5e1; font-size: 16px; margin: 0; line-height: 1.5; }
-    
-    .loader-bar {
-      width: 100px; height: 4px; background: rgba(255,255,255,0.2);
-      margin-top: 30px; border-radius: 2px; overflow: hidden;
-    }
-    .loader-progress {
-      width: 100%; height: 100%; background: #c4a457;
-      animation: load 4s linear forwards; transform-origin: left;
+    .icon-container svg {
+      width: 45px;
+      height: 45px;
+      color: #ffffff;
     }
 
-    @keyframes scaleUp { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-    @keyframes load { 0% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
+    h1 { 
+      font-size: 26px; 
+      margin: 0 0 12px 0; 
+      font-weight: 700;
+    }
+
+    p { 
+      color: #cbd5e1; 
+      font-size: 18px; 
+      margin: 0; 
+      line-height: 1.5; 
+    }
+
+    /* Barra de progresso para o reset */
+    .loader-bar {
+      width: 120px;
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      margin-top: 30px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .loader-progress {
+      width: 100%;
+      height: 100%;
+      background: #c4a457;
+      animation: load 4s linear forwards;
+      transform-origin: left;
+    }
+
+    @keyframes scaleUp {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes load {
+      0% { transform: scaleX(0); }
+      100% { transform: scaleX(1); }
+    }
   </style>
 </head>
 <body>
@@ -59,10 +99,9 @@
   <div class="loader-bar"><div class="loader-progress"></div></div>
 
   <script>
-    // Esse script faz a mágica:
     setTimeout(function() {
-      // Ele tenta voltar para a página anterior (o formulário que foi preenchido)
-      window.history.back();
+      // Redireciona limpando o formulário
+      window.top.location.href = "https://cinepolis-web-assets.github.io/forms/eventos.html?t=" + Date.now();
     }, 4000);
   </script>
 
