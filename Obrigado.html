@@ -102,11 +102,15 @@
 
   <script>
     setTimeout(function() {
-      /* Esta é a parte que você pediu:
-         Dá um "F5" no iframe. Como ele veio de um formulário POST, 
-         o reload volta para a URL limpa do próprio arquivo de obrigado.
-      */
-      window.location.reload();
+      // 1. Tenta descobrir de qual formulário veio (?f=nome-do-arquivo.html)
+      const urlParams = new URLSearchParams(window.location.search);
+      const originalForm = urlParams.get('f');
+
+      // 2. Se souber a origem, volta para ela. Se não, volta para o eventos.html
+      // Adicionamos o Date.now para garantir que o formulário venha limpo
+      let destino = originalForm ? originalForm : "eventos.html";
+      
+      window.location.href = destino + "?t=" + Date.now();
     }, 4000);
   </script>
 
