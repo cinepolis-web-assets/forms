@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="5;url=https://www.cinepolis.com.br/">
+  <style>
+    body {
+      margin: 0;
+      padding: 60px 20px;
+      font-family: system-ui, -apple-system, sans-serif;
+      text-align: center;
+      /* Azul Marinho Cinépolis */
+      background-color: #002d62; 
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+    }
+    
+    .icon-container {
+      width: 80px;
+      height: 80px;
+      /* Dourado Cinépolis para o destaque */
+      background-color: #c4a457; 
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .icon-container svg {
+      width: 45px;
+      height: 45px;
+      color: #ffffff;
+    }
+
+    h1 { 
+      font-size: 26px; 
+      margin: 0 0 12px 0; 
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    p { 
+      color: #cbd5e1; 
+      font-size: 16px; 
+      margin: 0; 
+      line-height: 1.5; 
+    }
+    
+    .redirect-text {
+      margin-top: 40px;
+      font-size: 11px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Pequena animação no ícone para dar um charme */
+    .icon-container {
+      animation: scaleUp 0.5s ease-out;
+    }
+    @keyframes scaleUp {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="icon-container">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+    </svg>
+  </div>
+
+  <h1>Mensagem enviada!</h1>
+  <p>Obrigado pelo contato.<br>Nossa equipe responderá em breve.</p>
+
+  <p class="redirect-text">Redirecionando para o site oficial...</p>
+
+</body>
+</html>
