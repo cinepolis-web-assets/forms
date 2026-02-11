@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contato</title>
+
+  <style>
+    :root{
+      --border:#d9dde3;
+      --text:#111827;
+      --muted:#6b7280;
+      --focus:rgba(59,130,246,.25);
+    }
+    body{
+      margin:0;
+      padding:32px 16px;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:#fff;
+    }
+    .wrap{max-width:760px;margin:0 auto;}
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px 22px;
+    }
+    .field{display:flex;flex-direction:column;gap:8px;}
+    label{font-size:15px;font-weight:600;}
+    .req{color:#dc2626;margin-left:4px;}
+
+    input[type="text"], input[type="email"], input[type="date"], select, textarea{
+      width:100%;
+      box-sizing:border-box;
+      border:1px solid var(--border);
+      border-radius:6px;
+      padding:12px;
+      font-size:14px;
+      outline:none;
+      background:#fff;
+      color:var(--text);
+    }
+    textarea{min-height:140px;resize:vertical;}
+    input:focus, select:focus, textarea:focus{
+      box-shadow:0 0 0 4px var(--focus);
+      border-color:#60a5fa;
+    }
+    select{
+      appearance:none;
+      background-image:
+        linear-gradient(45deg,transparent 50%,#6b7280 50%),
+        linear-gradient(135deg,#6b7280 50%,transparent 50%),
+        linear-gradient(to right,transparent,transparent);
+      background-position:calc(100% - 18px) calc(50% - 2px),
+        calc(100% - 12px) calc(50% - 2px), 100% 0;
+      background-size:6px 6px, 6px 6px, 2.5em 2.5em;
+      background-repeat:no-repeat;
+      padding-right:42px;
+    }
+
+    input[type="date"]{
+      appearance:none;
+      -webkit-appearance:none;
+      -moz-appearance:textfield;
+      position:relative;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator{
+      opacity:0.75;
+      cursor:pointer;
+    }
+
+    .full{grid-column:1 / -1;}
+    .note{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid #eef0f3;
+      color:var(--text);
+      line-height:1.45;
+      font-weight:700;
+    }
+    .submit-row{margin-top:18px;}
+    .btn{
+      border:0;
+      border-radius:6px;
+      padding:12px 16px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+      background:#111827;
+      color:#fff;
+    }
+    @media (max-width:640px){
+      .grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Das00000CzBxJ" method="POST">
+      <input type="hidden" name="oid" value="00Das00000CzBxJ">
+      <input type="hidden" name="retURL" value="https://cinepolis-web-assets.github.io/forms/Obrigado.html?f=CineEscola.html">
+
+
+            <!-- Campo oculto: Formulário Web (WebForms) -->
+            <input type="hidden" name="00Nas00000Glrg8" value="Escola">
+            
+            <!-- Campo oculto: Tipo de Registro (RecordType) -->
+            <input type="hidden" name="recordType" id="recordType" value="012as000000aVwaAAE">
+
+
+      
+      <div class="grid">
+        <!-- Contato (Primeiro Nome / Sobrenome) -->
+        <div class="field">
+          <label for="first_name">Contato <span class="req">*</span></label>
+          <input id="first_name" maxlength="40" name="first_name" type="text" placeholder="Primeiro nome" required>
+        </div>
+
+        <div class="field">
+          <label for="last_name">&nbsp;</label>
+          <input id="last_name" maxlength="80" name="last_name" type="text" placeholder="Sobrenome" required>
+        </div>
+
+        <!-- Escola (Company) - linha inteira após nome/sobrenome -->
+        <div class="field full">
+          <label for="company">Escola </label>
+          <input id="company" maxlength="255" name="company" type="text" placeholder="Nome da escola">
+        </div>
+
+        <!-- Telefone / Email -->
+        <div class="field">
+          <label for="phone">Telefone <span class="req">*</span></label>
+          <input id="phone" maxlength="40" name="phone" type="text" placeholder="(00) 0 0000-0000" required inputmode="numeric" autocomplete="tel" required>
+        </div>
+
+        <div class="field">
+          <label for="email">E-mail <span class="req">*</span></label>
+          <input id="email" maxlength="80" name="email" type="email" placeholder="exemplo@exemplo.com" required autocomplete="email" required>
+        </div>
+
+        <!-- Documento / Cinema desejado -->
+        <div class="field">
+          <label for="00Nas00000GkkD7">Documento</label>
+          <input id="00Nas00000GkkD7" maxlength="18" name="00Nas00000GkkD7" type="text" placeholder="00.000.000/0000-00" inputmode="numeric" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="00Nas00000Glrfp">Cinema desejado <span class="req">*</span> </label>
+          <select id="00Nas00000Glrfp" name="00Nas00000Glrfp" title="Cinema de Interesse" required>
+            <option value="">-- Nenhum --</option>
+            <option value="Cinépolis JK Iguatemi">Cinépolis JK Iguatemi</option>
+            <option value="Cinépolis Jockey Plaza Curitiba">Cinépolis Jockey Plaza Curitiba</option>
+            <option value="Cinépolis Pátio Batel">Cinépolis Pátio Batel</option>
+            <option value="Cinépolis Itaquá Park">Cinépolis Itaquá Park</option>
+            <option value="Cinépolis Jardim Pamplona">Cinépolis Jardim Pamplona</option>
+            <option value="Cinépolis Mais Shopping (Largo Treze)">Cinépolis Mais Shopping (Largo Treze)</option>
+            <option value="Cinépolis Metrô Itaquera">Cinépolis Metrô Itaquera</option>
+            <option value="Cinépolis Parque Maia">Cinépolis Parque Maia</option>
+            <option value="Cinépolis São Bernardo">Cinépolis São Bernardo</option>
+            <option value="Cinépolis Jardim Oriente">Cinépolis Jardim Oriente</option>
+            <option value="Cinépolis Boulevard Bauru">Cinépolis Boulevard Bauru</option>
+            <option value="Cinépolis Iguatemi Alphaville">Cinépolis Iguatemi Alphaville</option>
+            <option value="Cinépolis Iguatemi Esplanada">Cinépolis Iguatemi Esplanada</option>
+            <option value="Cinépolis Iguatemi Ribeirão Preto">Cinépolis Iguatemi Ribeirão Preto</option>
+            <option value="Cinépolis Iguatemi São José do Rio Preto">Cinépolis Iguatemi São José do Rio Preto</option>
+            <option value="Cinépolis Marília Shopping">Cinépolis Marília Shopping</option>
+            <option value="Cinépolis Ourinhos">Cinépolis Ourinhos</option>
+            <option value="Cinépolis Parque Barueri">Cinépolis Parque Barueri</option>
+            <option value="Cinépolis Plaza Avenida SJRP">Cinépolis Plaza Avenida SJRP</option>
+            <option value="Cinépolis Plaza Carapicuiba">Cinépolis Plaza Carapicuiba</option>
+            <option value="Cinépolis Santa Ursula">Cinépolis Santa Ursula</option>
+            <option value="Cinépolis Estação Cuiabá">Cinépolis Estação Cuiabá</option>
+            <option value="Cinépolis Guararapes">Cinépolis Guararapes</option>
+            <option value="Cinépolis Manaíra Shopping">Cinépolis Manaíra Shopping</option>
+            <option value="Cinépolis Mangabeira">Cinépolis Mangabeira</option>
+            <option value="Cinépolis Norte Sul Plaza">Cinépolis Norte Sul Plaza</option>
+            <option value="Cinépolis Parque Bahia">Cinépolis Parque Bahia</option>
+            <option value="Cinépolis Patteo Olinda">Cinépolis Patteo Olinda</option>
+            <option value="Cinépolis Salvador Norte">Cinépolis Salvador Norte</option>
+            <option value="Cinépolis Amapá Garden">Cinépolis Amapá Garden</option>
+            <option value="Cinépolis Boulevard Belém">Cinépolis Boulevard Belém</option>
+            <option value="Cinépolis Manaus Plaza">Cinépolis Manaus Plaza</option>
+            <option value="Cinépolis Millennium">Cinépolis Millennium</option>
+            <option value="Cinépolis Natal Shopping">Cinépolis Natal Shopping</option>
+            <option value="Cinépolis Parque Belém">Cinépolis Parque Belém</option>
+            <option value="Cinépolis Ponta Negra">Cinépolis Ponta Negra</option>
+            <option value="Cinépolis Rio Poty">Cinépolis Rio Poty</option>
+            <option value="Cinépolis São Luis Shopping">Cinépolis São Luis Shopping</option>
+            <option value="Cinépolis Center Shopping Uberlândia">Cinépolis Center Shopping Uberlândia</option>
+            <option value="Cinépolis Cerrado">Cinépolis Cerrado</option>
+            <option value="Cinépolis Estação BH">Cinépolis Estação BH</option>
+            <option value="Cinépolis Moxuara">Cinépolis Moxuara</option>
+            <option value="Cinépolis North Shopping Joquei">Cinépolis North Shopping Joquei</option>
+            <option value="Cinépolis Rio Design Barra">Cinépolis Rio Design Barra</option>
+            <option value="Cinépolis Riomar Fortaleza">Cinépolis Riomar Fortaleza</option>
+            <option value="Cinépolis Riomar Kennedy">Cinépolis Riomar Kennedy</option>
+            <option value="Cinépolis São Gonçalo Shopping">Cinépolis São Gonçalo Shopping</option>
+            <option value="Cinépolis Campinas Shopping">Cinépolis Campinas Shopping</option>
+            <option value="Cinépolis Continente Park">Cinépolis Continente Park</option>
+            <option value="Cinépolis Galleria Campinas">Cinépolis Galleria Campinas</option>
+            <option value="Cinépolis João Pessoa POA">Cinépolis João Pessoa POA</option>
+            <option value="Cinépolis Jundiaí Shopping">Cinépolis Jundiaí Shopping</option>
+            <option value="Cinépolis Norte Shopping Blumenau">Cinépolis Norte Shopping Blumenau</option>
+            <option value="Cinépolis Praça Nova Santa Maria">Cinépolis Praça Nova Santa Maria</option>
+            <option value="Cinépolis San Pelegrino">Cinépolis San Pelegrino</option>
+            <option value="Cinépolis Três Lagoas">Cinépolis Três Lagoas</option>
+            <option value="Bourbon Carlos Gomes">Bourbon Carlos Gomes</option>
+          </select>
+        </div>
+
+        <!-- Número de Pessoas / Data do Evento -->
+        <div class="field">
+          <label for="00Nas00000Glrg0">Número de Pessoas</label>
+          <input id="00Nas00000Glrg0" name="00Nas00000Glrg0" type="text" placeholder="Ex.: 50" inputmode="numeric">
+        </div>
+
+        <div class="field">
+          <label for="00Nas00000Glrft">Data do Evento </label>
+          <input id="00Nas00000Glrft" name="00Nas00000Glrft" type="date">
+        </div>
+
+        <!-- Informações Adicionais -->
+        <div class="field full">
+          <label for="00Nas00000Glrfm">Informações Adicionais</label>
+          <textarea id="00Nas00000Glrfm" name="00Nas00000Glrfm" rows="6" wrap="soft" placeholder="Digite sua mensagem"></textarea>
+
+          <div class="note">
+            Importante: O atendimento neste canal é realizado de Segunda a Sexta-feira.
+            Mensagens enviadas aos Finais de Semana e Feriados serão respondidos em dias úteis.
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <button class="btn" type="submit" name="submit">Enviar</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function onlyDigits(value) {
+      return (value || "").replace(/\D/g, "");
+    }
+
+    // Telefone (Brasil): (00) 0000-0000 ou (00) 00000-0000
+    function formatPhoneBR(value) {
+      const d = onlyDigits(value).slice(0, 11);
+
+      if (d.length <= 2) return d ? `(${d}` : "";
+      if (d.length <= 6) return `(${d.slice(0,2)}) ${d.slice(2)}`;
+      if (d.length <= 10) return `(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`;
+      return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`;
+    }
+
+    // CPF/CNPJ
+    function formatCpfCnpj(value) {
+      const d = onlyDigits(value).slice(0, 14);
+
+      // CPF: 11 dígitos -> 000.000.000-00
+      if (d.length <= 11) {
+        const p1 = d.slice(0, 3);
+        const p2 = d.slice(3, 6);
+        const p3 = d.slice(6, 9);
+        const p4 = d.slice(9, 11);
+
+        let out = p1;
+        if (p2) out += "." + p2;
+        if (p3) out += "." + p3;
+        if (p4) out += "-" + p4;
+        return out;
+      }
+
+      // CNPJ: 14 dígitos -> 00.000.000/0000-00
+      const p1 = d.slice(0, 2);
+      const p2 = d.slice(2, 5);
+      const p3 = d.slice(5, 8);
+      const p4 = d.slice(8, 12);
+      const p5 = d.slice(12, 14);
+
+      let out = p1;
+      if (p2) out += "." + p2;
+      if (p3) out += "." + p3;
+      if (p4) out += "/" + p4;
+      if (p5) out += "-" + p5;
+      return out;
+    }
+
+    const phoneEl = document.getElementById("phone");
+    const docEl = document.getElementById("00Nas00000GkkD7");
+
+    if (phoneEl) {
+      const applyPhoneMask = () => { phoneEl.value = formatPhoneBR(phoneEl.value); };
+      phoneEl.addEventListener("input", applyPhoneMask);
+      phoneEl.addEventListener("blur", applyPhoneMask);
+      applyPhoneMask();
+    }
+
+    if (docEl) {
+      const applyDocMask = () => { docEl.value = formatCpfCnpj(docEl.value); };
+      docEl.addEventListener("input", applyDocMask);
+      docEl.addEventListener("blur", applyDocMask);
+      applyDocMask();
+    }
+
+    // Envio sem pontuação: manter máscara na tela, enviar apenas dígitos
+    const formEl = document.querySelector("form");
+    if (formEl) {
+      formEl.addEventListener("submit", () => {
+        if (docEl)   docEl.value   = onlyDigits(docEl.value);   // CPF/CNPJ
+        if (phoneEl) phoneEl.value = onlyDigits(phoneEl.value); // Telefone
+      });
+    }
+
+  </script>
+</body>
+</html>

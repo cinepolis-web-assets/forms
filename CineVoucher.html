@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solicitação de Vouchers</title>
+
+  <style>
+    :root{
+      --border:#d9dde3;
+      --text:#111827;
+      --muted:#6b7280;
+      --focus:rgba(59,130,246,.25);
+    }
+    body{
+      margin:0;
+      padding:32px 16px;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:#fff;
+    }
+    .wrap{max-width:760px;margin:0 auto;}
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px 22px;
+    }
+    .field{display:flex;flex-direction:column;gap:8px;}
+    label{font-size:15px;font-weight:600;}
+    .req{color:#dc2626;margin-left:4px;}
+
+    input[type="text"], input[type="email"], select, textarea{
+      width:100%;
+      box-sizing:border-box;
+      border:1px solid var(--border);
+      border-radius:6px;
+      padding:12px;
+      font-size:14px;
+      outline:none;
+      background:#fff;
+      color:var(--text);
+    }
+    textarea{min-height:140px;resize:vertical;}
+    input:focus, select:focus, textarea:focus{
+      box-shadow:0 0 0 4px var(--focus);
+      border-color:#60a5fa;
+    }
+
+    /* Select com “seta” (apenas quando NÃO for multiple) */
+    select:not([multiple]){
+      appearance:none;
+      background-image:
+        linear-gradient(45deg,transparent 50%,#6b7280 50%),
+        linear-gradient(135deg,#6b7280 50%,transparent 50%),
+        linear-gradient(to right,transparent,transparent);
+      background-position:calc(100% - 18px) calc(50% - 2px),
+        calc(100% - 12px) calc(50% - 2px), 100% 0;
+      background-size:6px 6px, 6px 6px, 2.5em 2.5em;
+      background-repeat:no-repeat;
+      padding-right:42px;
+    }
+
+    /* Seu campo de Tipo de Voucher é multi-select no W2L */
+    select[multiple]{
+      min-height:48px;
+      height:auto;
+      padding:10px 12px;
+    }
+
+    .full{grid-column:1 / -1;}
+    .note{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid #eef0f3;
+      color:var(--text);
+      line-height:1.45;
+      font-weight:700;
+    }
+    .submit-row{margin-top:18px;}
+    .btn{
+      border:0;
+      border-radius:6px;
+      padding:12px 16px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+      background:#111827;
+      color:#fff;
+    }
+    @media (max-width:640px){
+      .grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- SANDBOX -->
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Das00000CzBxJ" method="POST">
+      <input type="hidden" name="oid" value="00Das00000CzBxJ">
+      <input type="hidden" name="retURL" value="https://cinepolis-web-assets.github.io/forms/Obrigado.html?f=CineVoucher.html>
+
+                  <!-- Campo oculto: Formulário Web (WebForms) -->
+                  <input type="hidden" name="00Nas00000Glrg8" value="Voucher">
+
+                        <!-- Campo oculto: Tipo de Registro (RecordType) -->
+            <input type="hidden" name="recordType" id="recordType" value="012as000000aVwaAAE">
+
+      <div class="grid">
+        <!-- Contato (Primeiro Nome / Sobrenome) -->
+        <div class="field">
+          <label for="first_name">Contato <span class="req">*</span></label>
+          <input id="first_name" maxlength="40" name="first_name" type="text" placeholder="Primeiro nome" required>
+        </div>
+
+        <div class="field">
+          <label for="last_name">&nbsp;</label>
+          <input id="last_name" maxlength="80" name="last_name" type="text" placeholder="Sobrenome" required>
+        </div>
+
+        <!-- Empresa (Company) -->
+        <div class="field full">
+          <label for="company">Empresa</label>
+          <input id="company" maxlength="40" name="company" type="text" placeholder="Nome da Empresa">
+        </div>
+
+        <!-- Telefone / Email -->
+        <div class="field">
+          <label for="phone">Telefone <span class="req">*</span></label>
+          <input id="phone" maxlength="40" name="phone" type="text" placeholder="(00) 0 0000-0000" required inputmode="numeric" autocomplete="tel">
+        </div>
+
+        <div class="field">
+          <label for="email">E-mail <span class="req">*</span></label>
+          <input id="email" maxlength="80" name="email" type="email" placeholder="exemplo@exemplo.com" required autocomplete="email">
+        </div>
+
+        <!-- Documento -->
+        <div class="field">
+          <label for="00Nas00000GkkD7">Documento</label>
+          <input id="00Nas00000GkkD7" maxlength="18" name="00Nas00000GkkD7" type="text"
+                 placeholder="00.000.000/0000-00" inputmode="numeric" autocomplete="off">
+        </div>
+
+        <!-- Tipo de Voucher (multi-select conforme W2L) -->
+        <div class="field">
+          <label for="00Nas00000Glrg7">Tipo de Voucher</label>
+          <select id="00Nas00000Glrg7" name="00Nas00000Glrg7" multiple="multiple">
+            <option value="Verde">Verde</option>
+            <option value="Amarelo">Amarelo</option>
+            <option value="Azul">Azul</option>
+            <option value="Roxo">Roxo</option>
+            <option value="Preto">Preto</option>
+            <option value="Vale Combo">Vale Combo</option>
+          </select>
+        </div>
+
+        <!-- Quantidade de Vouchers -->
+        <div class="field">
+          <label for="00Nas00000Glrg6">Quantidade de Vouchers</label>
+          <input id="00Nas00000Glrg6" name="00Nas00000Glrg6" type="text" placeholder="Ex.: 100" required inputmode="numeric">
+        </div>
+
+        <!-- Informações Adicionais -->
+        <div class="field full">
+          <label for="00Nas00000Glrfm">Informações Adicionais</label>
+          <textarea id="00Nas00000Glrfm" name="00Nas00000Glrfm" rows="6" wrap="soft" placeholder="Digite sua mensagem"></textarea>
+
+          <div class="note">
+            Importante: O atendimento neste canal é realizado de Segunda a Sexta-feira.
+            Mensagens enviadas aos Finais de Semana e Feriados serão respondidos em dias úteis.
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <button class="btn" type="submit" name="submit">Enviar</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function onlyDigits(value) {
+      return (value || "").replace(/\D/g, "");
+    }
+
+    // Telefone (Brasil): (00) 0000-0000 ou (00) 00000-0000
+    function formatPhoneBR(value) {
+      const d = onlyDigits(value).slice(0, 11);
+
+      if (d.length <= 2) return d ? `(${d}` : "";
+      if (d.length <= 6) return `(${d.slice(0,2)}) ${d.slice(2)}`;
+      if (d.length <= 10) return `(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`;
+      return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`;
+    }
+
+    // CPF/CNPJ
+    function formatCpfCnpj(value) {
+      const d = onlyDigits(value).slice(0, 14);
+
+      if (d.length <= 11) {
+        const p1 = d.slice(0, 3);
+        const p2 = d.slice(3, 6);
+        const p3 = d.slice(6, 9);
+        const p4 = d.slice(9, 11);
+
+        let out = p1;
+        if (p2) out += "." + p2;
+        if (p3) out += "." + p3;
+        if (p4) out += "-" + p4;
+        return out;
+      }
+
+      const p1 = d.slice(0, 2);
+      const p2 = d.slice(2, 5);
+      const p3 = d.slice(5, 8);
+      const p4 = d.slice(8, 12);
+      const p5 = d.slice(12, 14);
+
+      let out = p1;
+      if (p2) out += "." + p2;
+      if (p3) out += "." + p3;
+      if (p4) out += "/" + p4;
+      if (p5) out += "-" + p5;
+      return out;
+    }
+
+    // Apenas números (Quantidade)
+    function numericOnly(value) {
+      return onlyDigits(value).slice(0, 9);
+    }
+
+    const phoneEl = document.getElementById("phone");
+    const docEl = document.getElementById("00Nas00000GkkD7");
+    const qtyEl = document.getElementById("00Nas00000Glrg6");
+
+    if (phoneEl) {
+      const apply = () => { phoneEl.value = formatPhoneBR(phoneEl.value); };
+      phoneEl.addEventListener("input", apply);
+      phoneEl.addEventListener("blur", apply);
+      apply();
+    }
+
+    if (docEl) {
+      const apply = () => { docEl.value = formatCpfCnpj(docEl.value); };
+      docEl.addEventListener("input", apply);
+      docEl.addEventListener("blur", apply);
+      apply();
+    }
+
+    if (qtyEl) {
+      const apply = () => { qtyEl.value = numericOnly(qtyEl.value); };
+      qtyEl.addEventListener("input", apply);
+      qtyEl.addEventListener("blur", apply);
+      apply();
+    }
+
+    // Envio sem pontuação: manter máscara na tela, enviar apenas dígitos
+    const formEl = document.querySelector("form");
+    if (formEl) {
+      formEl.addEventListener("submit", () => {
+        if (docEl)   docEl.value   = onlyDigits(docEl.value);   // CPF/CNPJ
+        if (phoneEl) phoneEl.value = onlyDigits(phoneEl.value); // Telefone
+      });
+    }
+
+  </script>
+</body>
+</html>
