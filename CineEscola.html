@@ -58,7 +58,6 @@
       padding-right:42px;
     }
 
-    /* Mantém o visual do input type="date" parecido (sem “cara” de browser antiga) */
     input[type="date"]{
       appearance:none;
       -webkit-appearance:none;
@@ -100,23 +99,21 @@
   <div class="wrap">
     <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Das00000CzBxJ" method="POST">
       <input type="hidden" name="oid" value="00Das00000CzBxJ">
-      <input type="hidden" name="retURL" value="https://cinepolis-web-assets.github.io/forms/Obrigado.html?f=CineEventos.html">
-      <div class="grid">
+      <input type="hidden" name="retURL" value="https://cinepolis-web-assets.github.io/forms/Obrigado.html?f=CineEscola.html">
 
 
-                    <!-- Campo oculto: Formulário Web (WebForms) -->
-                    <input type="hidden" name="00Nas00000Glrg8" value="Eventos">
-
-                          <!-- Campo oculto: Tipo de Registro (RecordType) -->
+            <!-- Campo oculto: Formulário Web (WebForms) -->
+            <input type="hidden" name="00Nas00000Glrg8" value="Escola">
+            
+            <!-- Campo oculto: Tipo de Registro (RecordType) -->
             <input type="hidden" name="recordType" id="recordType" value="012as000000aVwaAAE">
 
-            <!-- Campo oculto: Empresa (Company) -->
-            <input type="hidden" name="company" id="company" value="[nao fornecido]">
-
             <!-- Campo oculto: Produto de Interesse (InterestProduct) -->
-            <input type="hidden" name="00Nas00000Glrg2" id="00Nas00000Glrg2" value="Eventos Corporativos">
+            <input type="hidden" name="00Nas00000Glrg2" id="00Nas00000Glrg2" value="Projeto Escola">
 
 
+      
+      <div class="grid">
         <!-- Contato (Primeiro Nome / Sobrenome) -->
         <div class="field">
           <label for="first_name">Contato <span class="req">*</span></label>
@@ -128,25 +125,31 @@
           <input id="last_name" maxlength="80" name="last_name" type="text" placeholder="Sobrenome" required>
         </div>
 
+        <!-- Escola (Company) - linha inteira após nome/sobrenome -->
+        <div class="field full">
+          <label for="company">Escola </label>
+          <input id="company" maxlength="255" name="company" type="text" placeholder="Nome da escola">
+        </div>
+
         <!-- Telefone / Email -->
         <div class="field">
           <label for="phone">Telefone <span class="req">*</span></label>
-          <input id="phone" maxlength="40" name="phone" type="text" placeholder="(00) 0 0000-0000" required inputmode="numeric" autocomplete="tel">
+          <input id="phone" maxlength="40" name="phone" type="text" placeholder="(00) 0 0000-0000" required inputmode="numeric" autocomplete="tel" required>
         </div>
 
         <div class="field">
           <label for="email">E-mail <span class="req">*</span></label>
-          <input id="email" maxlength="80" name="email" type="email" placeholder="exemplo@exemplo.com" required autocomplete="email">
+          <input id="email" maxlength="80" name="email" type="email" placeholder="exemplo@exemplo.com" required autocomplete="email" required>
         </div>
 
         <!-- Documento / Cinema desejado -->
         <div class="field">
-          <label for="00Nas00000Glrfp">Documento</label>
+          <label for="00Nas00000GkkD7">Documento</label>
           <input id="00Nas00000GkkD7" maxlength="18" name="00Nas00000GkkD7" type="text" placeholder="00.000.000/0000-00" inputmode="numeric" autocomplete="off">
         </div>
 
         <div class="field">
-          <label for="00Nas00000Glrfp">Cinema desejado <span class="req">*</span></label>
+          <label for="00Nas00000Glrfp">Cinema desejado <span class="req">*</span> </label>
           <select id="00Nas00000Glrfp" name="00Nas00000Glrfp" title="Cinema de Interesse" required>
             <option value="">-- Nenhum --</option>
             <option value="Cinépolis JK Iguatemi">Cinépolis JK Iguatemi</option>
@@ -217,8 +220,7 @@
 
         <div class="field">
           <label for="00Nas00000Glrft">Data do Evento </label>
-          <!-- Calendário -->
-          <input id="00Nas00000Glrft" name="00Nas00000Glrft" type="date" >
+          <input id="00Nas00000Glrft" name="00Nas00000Glrft" type="date">
         </div>
 
         <!-- Informações Adicionais -->
@@ -240,7 +242,6 @@
   </div>
 
   <script>
-    // Helpers
     function onlyDigits(value) {
       return (value || "").replace(/\D/g, "");
     }
@@ -288,7 +289,6 @@
       return out;
     }
 
-    // Bindings
     const phoneEl = document.getElementById("phone");
     const docEl = document.getElementById("00Nas00000GkkD7");
 
